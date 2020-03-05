@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+    <title>Gjestebok</title>
+</head>
+<body>
+<form>
+    <h1>Gjestebok</h1>
+    
+    <p>
+        <input id="txtNavn" type="text" placeholder="Navn">
+    </p>
+    <p>
+        <input id="txtMelding" type="text" placeholder="Melding">
+    </p>
+    
+    <p>
+        <input id="btnSendInn" type="button" onclick="sendInn()" value="Send inn">
+    </p>
+</form>
+
+    <div id="gjestebok"></div>
+    <script>
+ /*   let txtNavn = document.querySelector("#txtNavn")
+    let txtMelding = document.querySelector("#txtMelding")
+    let gjestebok = document.querySelector("#gjestebok")
+    let teller = 0
+    
+    function sendInn(){
+        let navn = txtNavn.value;
+        let melding = txtMelding.value;
+        teller ++
+        
+        gjestebok.innerHTML += `<div>${teller}. ${navn} <br> ${melding}</div>` 
+   
+
+}
+   */     
+ </script>
+    
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-database.js"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-analytics.js"></script>
+
+<script>
+
+  var firebaseConfig = {
+    apiKey: "AIzaSyC6owwVAMowTB-47bfiZvdReigXyuVNJJ4",
+    authDomain: "hedda-d0105.firebaseapp.com",
+    databaseURL: "https://hedda-d0105.firebaseio.com",
+    projectId: "hedda-d0105",
+    storageBucket: "hedda-d0105.appspot.com",
+    messagingSenderId: "465700637150",
+    appId: "1:465700637150:web:375161cf5b96291479754f",
+    measurementId: "G-H6CDPZKPH1"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+    
+let db = firebase.database()
+let gjestebok = db.ref("gjestebok");
+
+    
+    function sendInn(){
+        var navn_in = document.getElementById("txtNavn").value;
+        var melding_in = document.getElementById("txtMelding").value; 
+        var today = new Date();
+        var datetime = today.getFullYear()+"8"+today.getDate()+""+today.getHours()+""+today.getSeconds();
+        
+        let new_object = gjestebok.child(navn_in);
+        
+        
+        new_object.set(
+        {
+            navn : navn_in, melding : melding_in
+
+        }
+        );
+    
+    window.alert("Melding lagt til i database");
+    }
+    
+    function visDatabase(){
+        function visDatabase_hjelpefunksjon(snapshot){
+            let timestamp = snapshot.
+        }
+    }
+    
+</script>
+    <input id="navn" type="text" placeholder="navn" required autocomplete="off"> <br>
+    <textarea id ="melding" rows="4" cols="50" placeholder="Melding skrives her" required></textarea><br>
+    <input submit type="submit" onclick="submit2()"; visDatabase()value="Send inn!">
+    <style>
+        body{
+            background-color: lightblue;
+            text-align: center;
+            
+        
+        }
+        h1{
+            font-family: "copperplate";
+            font-size: 100px;
+            text-align: center;
+            color: aliceblue;
+        }
+        function{
+            text-align: center;
+}
+    </style>
+</body>
+</html>
